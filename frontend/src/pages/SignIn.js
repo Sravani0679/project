@@ -8,11 +8,7 @@ import Footer from '../component/Footer'
 
 const SignIn = ({history}) => {
 
-    const [values, setValues] = useState({
-       // email: 'emmanuelnoc@gmail.com',
-       // password:'Mann@123'
- 
-    });
+    const [values, setValues] = useState({});
 
     const { email, password} = values;
 
@@ -51,6 +47,8 @@ const SignIn = ({history}) => {
          
         }
     }
+
+    
     
     return (
         <div>

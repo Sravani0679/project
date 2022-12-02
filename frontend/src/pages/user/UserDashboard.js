@@ -6,6 +6,9 @@ import 'react-calendar/dist/Calendar.css';
 import '../user/Drafts/TextEditor';
 import Card from './Quotes/Card'
 import TextEditor from './Drafts/TextEditor';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 //import Write from './Drafts/Write';
 
 
@@ -29,6 +32,19 @@ const UserDashboard = () => {
             console.log(error);
         })
     }, []);
+
+    const logOut = () =>{
+        axios.get('/api/logout')
+        .then(result =>{
+            toast.success('Log out successfully');
+            localStorage.removeItem('token');
+            // history.push('/');
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+
+    }
     
   return (
     <>
@@ -71,6 +87,9 @@ const UserDashboard = () => {
             </div>
         </div>
     </div>
+    <li className="nav-item">
+        <Link className="nav-link" to ="" onClick={logOut} >Log out </Link>
+    </li> 
    
     <Footer/>    
                 

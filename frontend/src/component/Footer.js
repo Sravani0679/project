@@ -3,8 +3,8 @@ import React from 'react'
 const Footer = () => {
     return (
         <div>
-            <div className="text-center p-4 footer" style={{backgroundColor: '#ffbc7e'}}>
-                © 2022 Copyright: <a className="text-reset fw-bold" target="_blank" rel="noreferrer" href="#">MERN STACK APP</a>    
+            <div>
+                © 2022 Copyright: <a className="text-reset fw-bold" target="_blank" rel="noreferrer" href="#">REVIVE</a>    
             </div>
         </div>
     )

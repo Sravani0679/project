@@ -4,12 +4,7 @@ import { toast} from 'react-toastify';
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import '../pages/SignUp.scss'
-
-
-
-
-
-
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
@@ -78,6 +73,7 @@ const SignUp = () => {
                 
                     <button onClick={handleSubmit} type="submit" className="btn btn-primary btn-block mb-4">Register</button>
                 </form>
+                
             </div>
             <Footer/>
         </div>

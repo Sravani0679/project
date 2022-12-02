@@ -9,18 +9,7 @@ import {toast} from 'react-toastify'
 const Header = ({history}) => {
   
 
-    const logOut = () =>{
-        axios.get('/api/logout')
-        .then(result =>{
-            toast.success('Log out successfully');
-            localStorage.removeItem('token');
-            history.push('/');
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-
-    }
+  
 
     return (
         <div>
@@ -44,7 +33,7 @@ const Header = ({history}) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     
                         <Link className="navbar-brand mt-2 mt-lg-0" href="#">
-                            MERN STACK
+                            REVIVE
                         </Link>
                         
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -62,9 +51,9 @@ const Header = ({history}) => {
                                 <Link className="nav-link" to ="/signin" >Sign In </Link>
                            </li>
 
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to ="" onClick={logOut} >Log out </Link>
-                           </li>
+                           </li> */}
 
                     
                         </ul>
