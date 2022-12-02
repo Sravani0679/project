@@ -110,6 +110,7 @@ class TextEditor extends React.Component {
                   if (!contentState.hasText()) {
                     window.alert("please pour your thoughts!");
                   }else{
+            
                     let texts = contentState.getPlainText();
                     console.log(texts);
                     window.alert("draft updated");
@@ -118,11 +119,12 @@ class TextEditor extends React.Component {
               }}> Update </button>
 
               <button id='delete' onClick={()=> {
-                    let texts = contentState.getPlainText();
+                    let texts = contentState.getEntity();
                     console.log(texts);
                     window.alert("draft deleted");
-                    contentState.clear();
+                    // contentState.clear();
                     localStorage.removeItem("text", JSON.stringify(texts));
+                    
                   }
               }> Delete </button>
 
