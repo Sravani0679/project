@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: Mining Pools Mempool API
+  version: 1.0.0
+paths:
+  /lightning/nodes/isp/{ispId}:
+    get:
+      summary: Returns aggregate capacity, number of nodes, and number of channels for a specific ISP by ISP ID.
+      description: Capacity figures are in satoshis. ISP ID is a dynamic parameter that should be provided in the path.
+      parameters:
+        - name: ispId
+          in: path
+          required: true
+          description: The unique identifier for the Internet Service Provider.
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Detailed information of the specified ISP including aggregate capacity, number of nodes, and number of channels.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ispRankingStats"
+components:
+  schemas:
+    ispRankingStats:
+      type: object
+      properties:
+        isp:
+          type: string
+          description: Name of the Internet Service Provider.
+        nodes:
+          type: array
+          items:
+            type: object
+            properties:
+              ISpNode:
+                type: integer
+                description: Description of the ISpNode property.
+              public_key:
+                type: string
+                description: Public key of the node.
+              capacity:
+                type: integer
+                description: Capacity of the node in satoshis.
+              channels:
+                type: integer
+                description: Number of channels hosted by the node.
+              alias:
+                type: string
+                description: Alias of the node.
+              first_seen:
+                type: integer
+                description: Timestamp when the node was first seen.
+              updated_at:
+                type: integer
+                description: Timestamp when the node was last updated.
+              city:
+                type: object
+                properties:
+                  en:
+                    type: string
+                    description: City name in English.
+                  ru:
+                    type: string
+                    description: City name in Russian.
+                description: City information of the node.
+              country:
+                type: object
+                properties:
+                  de:
+                    type: string
+                    description: Country name in German.
+                  en:
+                    type: string
+                    description: Country name in English.
+                  es:
+                    type: string
+                    description: Country name in Spanish.
+                  fr:
+                    type: string
+                    description: Country name in French.
+                  ja:
+                    type: string
+                    description: Country name in Japanese.
+                  pt-BR:
+                    type: string
+                    description: Country name in Portuguese (Brazil).
+                  ru:
+                    type: string
+                    description: Country name in Russian.
+                  zh-CN:
+                    type: string
+                    description: Country name in Chinese (Simplified).
+                description: Country information of the node.
+              iso_code:
+                type: string
+                description: ISO code of the country.
+              subdivision:
+                type: object
+                properties:
+                  de:
+                    type: string
+                    description: Subdivision name in German.
+                  en:
+                    type: string
+                    description: Subdivision name in English.
+                  es:
+                    type: string
+                    description: Subdivision name in Spanish.
+                  fr:
+                    type: string
+                    description: Subdivision name in French.
+                  ja:
+                    type: string
+                    description: Subdivision name in Japanese.
+                  pt-BR:
+                    type: string
+                    description: Subdivision name in Portuguese (Brazil).
+                  ru:
+                    type: string
+                    description: Subdivision name in Russian.
+                  zh-CN:
+                    type: string
+                    description: Subdivision name in Chinese (Simplified).
+                description: Subdivision information of the node.
+              longitude:
+                type: number
+                description: Longitude of the node location.
+              latitude:
+                type: number
+                description: Latitude of the node location.
